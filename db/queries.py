@@ -1,11 +1,15 @@
 CREATE_TASK = """
     CREATE TABLE IF NOT EXISTS tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    task TEXT NOT NULL
+    task TEXT NOT NULL, 
+    completed INTEGER DEFAULT 0
     )
 """
 
-SELECT_TASKS = "SELECT id, task FROM tasks"
+SELECT_TASKS = "SELECT id, task, completed FROM tasks"
+
+SELECT_TASKS_COMPLETED = "SELECT id, task, completed FROM tasks WHERE completed = 1"
+SELECT_TASKS_UNCOMPLETED = "SELECT id, task, completed FROM tasks WHERE completed = 0"
 
 UPDATE_TASK = "UPDATE tasks SET task = ? WHERE id = ?"
 
